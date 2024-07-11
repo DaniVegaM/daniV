@@ -1,0 +1,102 @@
+@use 'global/variables' as v;
+@use 'global/mixins' as m;
+
+.header{
+    background-color: v.$principal;
+    height: 8rem;
+    padding: 1rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    @include m.tablet{
+        gap: 0;
+    }
+    .header__title{
+        color: v.$blanco;
+        font-family: v.$consola;
+        font-size: 3rem;
+    }
+      
+    .header__nav{
+        display: none;
+        @include m.tablet{
+            display: flex;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 4rem;
+        }
+        .header__link{
+            color: v.$blanco;
+            font-family: v.$consola;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.8rem;
+            transition: all .3s;
+            padding: 1rem;
+            &:hover{
+                background-color: v.$negro;
+                color: v.$blanco;
+                border-radius: 1rem;
+                transition: all .3s;
+            }
+        }
+        .header__link-special{
+            padding: 1rem 2rem;
+            background-color: v.$blanco;
+            color: v.$negro;
+            border-radius: 1rem;
+            transition: all .3s;
+            &:hover{
+                background-color: v.$negro;
+                color: v.$blanco;
+            }
+        }
+    }
+}
+
+
+//EFECTOS HAMBURGER MENU
+.hamburger {
+    cursor: pointer;
+    @include m.tablet{
+        display: none;
+    }
+}
+  
+.hamburger input {
+display: none;
+}
+  
+.hamburger svg {
+/* The size of the SVG defines the overall size */
+height: 3em;
+/* Define the transition for transforming the SVG */
+transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+  
+.line {
+fill: none;
+stroke: white;
+stroke-linecap: round;
+stroke-linejoin: round;
+stroke-width: 3;
+/* Define the transition for transforming the Stroke */
+transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+            stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+  
+.line-top-bottom {
+stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+stroke-dasharray: 20 300;
+stroke-dashoffset: -32.42;
+}

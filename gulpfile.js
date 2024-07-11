@@ -74,7 +74,7 @@ function versionAvif(){
 function dev(){
     //"watch" execute functions automatically
     watch("src/scss/**/*.scss", css);
-    watch("src/img/**/*", imagenes);
+    watch("src/img/**/*", images);
 }
 
 //How could you execute a function? : gulp "name of function"
